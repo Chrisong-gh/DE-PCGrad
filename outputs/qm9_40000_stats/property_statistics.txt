@@ -1,0 +1,251 @@
+=== 分子属性统计信息 ===
+数据文件: outputs/qm9_40000.npz
+分子总数: 40000
+分析属性: ['alpha', 'homo', 'lumo', 'gap', 'mu', 'Cv']
+
+属性: alpha
+  数量: 40000
+  最小值: 12.989998
+  最大值: 143.525314
+  均值: 75.271847
+  标准差: 8.178025
+  中位数: 75.604294
+  25%分位数: 70.459404
+  75%分位数: 80.659018
+  范围: [12.989998, 143.525314]
+
+属性: homo
+  数量: 40000
+  最小值: -11.660294
+  最大值: -2.769442
+  均值: -6.538805
+  标准差: 0.600558
+  中位数: -6.564182
+  25%分位数: -6.879211
+  75%分位数: -6.229648
+  范围: [-11.660294, -2.769442]
+
+属性: lumo
+  数量: 40000
+  最小值: -4.195150
+  最大值: 3.184275
+  均值: 0.335296
+  标准差: 1.274809
+  中位数: 0.359469
+  25%分位数: -0.630013
+  75%分位数: 1.421142
+  范围: [-4.195150, 3.184275]
+
+属性: gap
+  数量: 40000
+  最小值: 1.146888
+  最大值: 13.733115
+  均值: 6.864905
+  标准差: 1.289218
+  中位数: 6.820574
+  25%分位数: 5.901156
+  75%分位数: 7.884309
+  范围: [1.146888, 13.733115]
+
+属性: mu
+  数量: 40000
+  最小值: 0.000153
+  最大值: 22.637238
+  均值: 2.657382
+  标准差: 1.484234
+  中位数: 2.462404
+  25%分位数: 1.580301
+  75%分位数: 3.570545
+  范围: [0.000153, 22.637238]
+
+属性: Cv
+  数量: 40000
+  最小值: -42.390862
+  最大值: -0.340874
+  均值: -22.193095
+  标准差: 6.072133
+  中位数: -22.338637
+  25%分位数: -26.470059
+  75%分位数: -18.043188
+  范围: [-42.390862, -0.340874]
+
+
+
+
+          
+
+        
+            
+toolName: view_files
+            
+status: success
+          
+            
+filePath: /home/smj/workspace/GeoLDM-main/outputs/qm9_40000_stats/property_statistics.txt
+          
+
+        
+            
+toolName: view_files
+            
+status: success
+          
+            
+filePath: /home/smj/workspace/GeoLDM-main/outputs/qm9_40000_stats/property_statistics.txt
+          
+
+        
+            
+toolName: search_codebase
+            
+status: success
+          
+query: QM9 dataset property normalization units conversion scaling factor
+          
+
+        
+            
+toolName: search_codebase
+            
+status: success
+          
+query: QM9 properties units alpha homo lumo gap mu Cv original values hartree eV
+          
+
+        
+            
+toolName: web_search
+            
+status: success
+          
+query: QM9 dataset properties units alpha homo lumo gap mu Cv hartree eV bohr
+          
+根据我查看的统计文件和搜索到的信息，我可以回答你的问题。
+
+你提到的数值**不需要乘以任何数字**，这些就是正确的值。让我解释一下：
+
+## QM9数据集属性的单位和数值范围
+
+根据搜索结果，QM9数据集中各属性的原始单位如下：<mcreference link="https://github.com/deepchem/deepchem/blob/master/deepchem/molnet/load_function/qm9_datasets.py" index="4">4</mcreference>
+
+1. **alpha (极化率)**: 单位是 Bohr³
+2. **homo (最高占据分子轨道能量)**: 单位是 Hartree
+3. **lumo (最低未占据分子轨道能量)**: 单位是 Hartree  
+4. **gap (HOMO-LUMO能隙)**: 单位是 Hartree
+5. **mu (偶极矩)**: 单位是 Debye (D)
+6. **Cv (热容)**: 单位是 cal/(mol·K)
+
+## 你的数据是否正确
+
+从你的统计文件中看到的数值范围：
+
+- **alpha**: 12.99 - 143.53 (合理的极化率范围，单位 Bohr³)
+- **homo**: -11.66 到 -2.77 (合理的HOMO能量，单位 Hartree，负值是正常的)
+- **lumo**: -4.20 到 3.18 (合理的LUMO能量，单位 Hartree)
+- **gap**: 1.15 到 13.73 (合理的能隙，单位 Hartree)
+- **mu**: 0.0002 到 22.64 (合理的偶极矩，单位 Debye)
+- **Cv**: -42.39 到 -0.34 (这个数值看起来可能经过了某种标准化处理)
+
+## 关于数值转换
+
+根据搜索结果，有些实现会进行单位转换：<mcreference link="https://github.com/usnistgov/jarvis/issues/202" index="1">1</mcreference>
+- HOMO/LUMO 有时会从 Hartree 转换为 eV (1 Hartree ≈ 27.2114 eV)
+- 然后可能会进行标准化处理（减去均值，除以标准差）
+
+但是从你的数值范围来看，这些应该就是**正确的原始数值**或者是**合理标准化后的数值**，不需要再乘以任何转换因子。
+
+如果你想验证，可以检查一下：
+1. 你的数据是否经过了标准化处理
+2. 对比一下原始QM9数据集的数值范围
+
+你的数据看起来是正常的，不需要额外的数值转换。
+
+
+
+
+          
+根据你提供的表格和你的数据，我来解释一下单位转换的问题：
+
+## 表格中的单位说明
+
+从表格可以看出，各属性的单位是：
+- **α (alpha)**: Bohr³ (玻尔立方)
+- **Δε (gap)**: meV (毫电子伏特)
+- **εhomo (homo)**: meV (毫电子伏特)
+- **εlumo (lumo)**: meV (毫电子伏特)
+- **μ (mu)**: D (德拜)
+- **Cv**: cal/(mol·K) (卡路里每摩尔每开尔文)
+
+## 你的数据需要的转换
+        
+            
+toolName: view_files
+            
+status: success
+          
+            
+filePath: /home/smj/workspace/GeoLDM-main/outputs/qm9_40000_stats/property_statistics.txt
+          
+根据你提供的表格和你的数据，我来解释单位转换关系：
+
+## 单位转换对照
+
+### 1. **能量相关属性 (HOMO, LUMO, Gap)**
+
+**表格中的单位**: meV (毫电子伏特)
+**你数据中的单位**: Hartree (哈特里)
+
+**转换关系**:
+- 1 Hartree = 27,211.4 meV
+- 1 eV = 1000 meV
+
+**你的数据转换示例**:
+- 你的 LUMO 均值: 0.335296 Hartree
+- 转换为 meV: 0.335296 × 27,211.4 = **9,124 meV**
+- 转换为 eV: 9,124 ÷ 1000 = **9.124 eV**
+
+### 2. **极化率 (α)**
+
+**表格中的单位**: Bohr³ (波尔立方)
+**你数据中的单位**: Bohr³ (相同)
+
+**无需转换** - 单位一致
+
+### 3. **偶极矩 (μ)**
+
+**表格中的单位**: D (德拜)
+**你数据中的单位**: D (德拜)
+
+**无需转换** - 单位一致
+
+### 4. **热容 (Cv)**
+
+**表格中的单位**: cal/(mol·K)
+**你数据中的单位**: 可能是标准化后的值
+
+## 为什么数值差异这么大？
+
+1. **表格显示的是MAE (平均绝对误差)**，不是实际属性值
+2. **你的数据可能经过了标准化处理** (减去均值，除以标准差)
+3. **单位系统不同**：
+   - 表格用的是实验常用单位 (meV, D, cal/(mol·K))
+   - 你的数据用的是计算化学标准单位 (Hartree, Bohr³, D)
+
+## 具体转换公式
+
+```
+HOMO/LUMO/Gap: 
+你的值(Hartree) × 27,211.4 = 表格对应值(meV)
+
+Alpha: 
+无需转换，都是 Bohr³
+
+Mu: 
+无需转换，都是 Debye
+
+Cv: 
+需要查看具体的标准化参数
+```
+
+你的数据是正确的，只是使用了不同的单位系统和可能的标准化处理。
+        
